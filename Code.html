@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Denisse's Code!</title>
+	</head>
+	<h3>Mad Libs Code</h3>
+	<body>
+	<pre>
+	<p>
+noun1=input("provide noun: ")
+articleofclothing1=input("provide article of clothing: ")
+adjective1=input("provide adjective: ")
+adjective2=input("provide another adjective: ")
+noun2=input("provide another noun: ")
+pluralnoun1=input("provide plural noun: ")
+noun3=input("provide another noun: ")
+adjective3=input("provide another adjective: ")
+food1=input("provide food: ")
+liquid1=input("provide liquid: ")
+bodypart1=input("provide body part: ")
+pluralnoun2=input("provide another plural noun: ")
+pluralnoun3=input("provide another plural noun: ")
+animal1=input("provide animal: ")
+noun4=input("provide another noun: ")
+print("An amusement park is always fun to visit on a hot summer", noun1)
+print("When you get there, you can wear your", articleofclothing1, "and go")
+print("for a swim. And there are lots of", adjective1, "things to eat. You can")
+print("start off with a", adjective2, "dog on a with")
+print("mustard, relish, and", pluralnoun1, "on it. Then you can have a")
+print("buttered ear of", noun3, "with a nice", adjective3, "slice of", food1)
+print("and a big bottle of cold", liquid1, "When you")
+print("are full, it's time to go on the roller coaster, which should settle your", bodypart1)
+print("Other amusement park rides are the bumper cars, which have little", pluralnoun2)
+print("that you drive and run into other", pluralnoun3)
+print(",and the merry-go-round, where you can sit on a big", animal1, "and try to grab the gold", noun4, "as you ride past it." )
+	</body>
+	</pre>
+	</p>
+	<h3>Bouncing Ball</h3>
+	<body>
+	<pre>
+	<p>
+import pygame
+import random
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+GREY = (127, 127, 127)
+pygame.init()
+SCREEN_WIDTH = 700
+SCREEN_HEIGHT = 500
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Ball Game")
+done = False
+clock = pygame.time.Clock()
+possible_ball_colors = [BLACK, WHITE, GREEN, RED, BLUE, GREY]
+class BouncingBall(): 
+def __init__(self, x_location, y_location, x_speed, y_speed, ball_size):  
+self.x_location = x_location
+self.y_location = y_location  
+self.x_speed = x_speed
+self.y_speed = y_speed 
+self.ball_size = ball_size 
+def flashBounce(self, screen, colors, screen_width, screen_height):
+ball_color = random.choice(colors)
+if self.x_location >= screen_width - self.ball_size or self.x_location < self.ball_size:
+self.x_speed = self.x_speed * -1
+if self.y_location >= screen_height - self.ball_size or self.y_location < self.ball_size:
+self.y_speed = self.y_speed * -1
+self.x_location += self.x_speed 
+self.y_location += self.y_speed 
+pygame.draw.circle(screen, ball_color, [self.x_location, self.y_location], self.ball_size)
+x_speed = random.randint(-10,10)
+y_speed = random.randint(-10,10)
+ball1 = BouncingBall(350, 250, x_speed, y_speed, 17)
+ball2 = BouncingBall(220, 330, x_speed, y_speed, 21)
+ball3 = BouncingBall(180, 300, x_speed, y_speed, 32)
+while not done:
+for event in pygame.event.get():
+if event.type == pygame.QUIT:
+done = True
+screen.fill(GREEN) 
+ball1.flashBounce(screen, possible_ball_colors, SCREEN_WIDTH, SCREEN_HEIGHT)
+ball2.flashBounce(screen, possible_ball_colors, SCREEN_WIDTH, SCREEN_HEIGHT)
+ball3.flashBounce(screen, possible_ball_colors, SCREEN_WIDTH, SCREEN_HEIGHT)
+pygame.display.flip()
+clock.tick(60)
+pygame.quit()
+exit()
+	</body>
+	</pre>
+	</p>
+</html>
